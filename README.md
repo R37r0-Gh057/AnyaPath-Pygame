@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/TheSpeedX/NoisyBird">
-    <img alt="NoisyBird" src="final_logo_nobg.png">
+    <img alt="logo" src="logo.png">
   </a>
 </p>
 <h1 align="center">AnyaPath-Pygame</h1>
