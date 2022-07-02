@@ -14,7 +14,7 @@
 # Table of contents:
    - [Introduction](#introduction)
    - [How it works](#how-it-works)
-   - [Installation & Usage](#installation-&-usage)
+   - [Installation & Usage](#installation--usage)
    - [Known Issues](#known-issues)
 
 
