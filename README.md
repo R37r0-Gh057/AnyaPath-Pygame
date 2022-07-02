@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/TheSpeedX/NoisyBird">
+  <a href="https://github.com/R37r0-Gh057/AnyaPath-Pygame">
     <img alt="logo" src="logo_.png">
   </a>
 </p>
