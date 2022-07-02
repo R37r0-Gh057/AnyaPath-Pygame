@@ -3,7 +3,7 @@
     <img alt="logo" src="logo_.png">
   </a>
 </p>
-<h1 align="center">AnyaPath-Pygame</h1>
+<h1>AnyaPath-Pygame</h1>
 <div align="center">
 
 </div>
