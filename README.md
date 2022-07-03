@@ -13,6 +13,8 @@
   - [How to play](#how-to-play)
   - [The Magic Matrix](#the-magic-matrix)
   - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [To Do](#to-do)
 
 # Introduction:
 AnyaPath is made with Python (Pygame). In which [Anya Forger](https://spy-x-family.fandom.com/wiki/Anya_Forger) from [Spy x Family](https://en.wikipedia.org/wiki/Spy_%C3%97_Family) will find out any word that you have in mind without any mistakes using the [Magic Matrix method](#the-magic-matrix). (If you don't get the right result, then you must have given an incorrect input.)
