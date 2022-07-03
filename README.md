@@ -47,6 +47,7 @@ Let's say our desired word is "FISH".
 
 * Now we transpose the selected columns to create a new matrix and repeat the same steps with it:
 <img height = 150 src = "matrix_2.jpg">
+
   * We first select the **1st column**, since it has the **first** letter (**'F'**) of the word.
   * Then we select the **2nd column**, since it has the  **second** letter (**'I'**) of the word.
   * Then we select the **4th column**, since it has the **fourth** letter (**'S'**) of the word.
