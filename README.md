@@ -40,7 +40,7 @@ AnyaPath is made with Python (Pygame). In which [Anya Forger](https://spy-x-fami
 **EXAMPLE:**
 Let's say our desired word is "FISH".
 
-* From the below matrix we select the columns that containt the letters 'F', 'I', 'S', 'H':
+* From the below matrix we select the columns that contain the letters 'F', 'I', 'S', 'H':
 <img height = 150 src = "matrix_1.png">
 
   * We first select the **6th column**, since it has the **first** letter (**'F'**) of the word.
