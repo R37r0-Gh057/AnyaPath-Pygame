@@ -65,3 +65,15 @@ Just install the pygame module:
 
 Execute the ```game.py``` to run the game:
 ```python3 game.py```
+
+# Contributing:
+There is alot left to improve in the code. There are some current major known issues that need fixing:
+
+* The background music doesn't play in a loop.
+* Transpose Matrix created by a large word won't fit in the screen and matrix box height doesn't increase according to the length of the given word.
+
+  * ## To do:
+    * To make the game more fun:
+      * Add more sprites
+      * Add more sounds.
+      * Add more Anya-like dialogues.
