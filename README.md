@@ -28,6 +28,8 @@ AnyaPath is made with Python (Pygame). In which [Anya Forger](https://spy-x-fami
 
 * In the end Anya will tell you the word you were thinking of. :D
 
+<img src="demo.gif">
+
 # The Magic Matrix:
 * In the Magic Matrix method, there is a matrix which contains all of the alphabets.
 * In that matrix, only those columns that contain the letters of the word are selected in the continuos order.
