@@ -404,6 +404,7 @@ class Game:
                                 if input_loop:
                                     input_loop = False
                                     
+                                    # Reset the variables
                                     self.num_x = 229
                                     self.num_y = 452
                                     self.num_c = 0
@@ -431,11 +432,14 @@ class Game:
                                     
                                     if not transpose_matrix_input_loop:
                                         transpose_matrix_input_loop = True
+                                        
+                                        # Reset the variables
                                         self.num_x = 229
                                         self.num_y = 452
                                         self.num_c = 0
                                         c = 0
                                         n = 1
+                                        
                                         self.draw_matrix_transpose(columns_selected)
                                         self.display_diag("You'll have to do it 1 more time now...")
 
@@ -466,7 +470,7 @@ class Game:
 
                                         self.display_diag(f"The word you were thinking of is \"{calculated_word}\" !!")
                                         
-                                        # Resetting the counter variables::
+                                        # Reset the variables
                                         length = ''
                                         n = 1
                                         c = 0
