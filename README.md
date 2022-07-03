@@ -34,7 +34,7 @@ AnyaPath is made with Python (Pygame). In which [Anya Forger](https://spy-x-fami
 * The same steps are repeated with this new matrix to get the columns that contain the letters.
 * Finally, an element of every row of the columns are selected with incrementing the row number for each column. (See example below for better understanding.)
 
-<h1> Example:</h1>
+<p> Example:</p>
 Let's say our desired word is "FISH".
 
 * From the below matrix we select the columns that containt the letters 'F', 'I', 'S', 'H':
