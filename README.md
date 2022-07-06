@@ -63,7 +63,7 @@ Let's say our desired word is "FISH".
     * From the **fourth column[2]**, we take the element from **row number 4**.
 * After selecting the elements, you will have the whole word.
 # Installation:
-* Windows: download the Executable from [here](https://github.com/R37r0-Gh057/AnyaPath-Pygame/releases/tag/v1.0) and run it.
+* Windows: download the Executable from [here](https://github.com/R37r0-Gh057/AnyaPath-Pygame/releases/tag/v1.0.1) and run it.
 * Other:
   * Install python
   * Install pygame module: `python -m pip install pygame`
