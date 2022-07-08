@@ -67,7 +67,8 @@ Let's say our desired word is "FISH".
 * Other:
   * Install python
   * Install pygame module: `python -m pip install pygame`
-  * Run the game: `python game.py`
+  * Clone the repo: `git clone https://github.com/R37r0-Gh057/AnyaPath-Pygame`
+  * Run the game: ```cd AnyaPath-Pygame && python game.py```
  
 # Contributing:
 There is alot left to improve in the code. There are some current major known issues that need fixing:
