@@ -75,6 +75,7 @@ There is alot left to improve in the code. There are some current major known is
 * The background music doesn't play in a loop.
 * Transpose Matrix created by a large word won't fit in the screen and matrix box height doesn't increase according to the length of the given word.
 * On giving big words, the sentence length increases and the text goes out of the dialog box.
+* The game freezes when the screen is clicked before a dialogue has finished displaying.
 
   * ## To do:
     * To make the game more fun:
