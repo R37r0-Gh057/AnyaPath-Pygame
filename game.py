@@ -313,7 +313,7 @@ class Game:
         channel_0 = pygame.mixer.Channel(0)
         channel_0.set_volume(0.2)
         channel_0.set_endevent(pygame.USEREVENT+1)
-        channel_0.play(bg_music)
+        channel_0.play(bg_music, -1) # -1 parameter for endless loop
         
         while True:
             clock.tick(60)
