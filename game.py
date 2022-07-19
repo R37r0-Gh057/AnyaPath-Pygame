@@ -211,17 +211,13 @@ class Game:
 
     # play anya sounds
     def play_diags(self, num=0):
-
-        if num == 0:
-            pygame.mixer.music.load('sounds/welcome_to_anya_house.mp3')
-            pygame.mixer.music.play(0)
-
-        elif num == 1:
-            pygame.mixer.music.load('sounds/waku_waku.mp3')
-            pygame.mixer.music.play(0)
-
-        elif num == 2:
-            pygame.mixer.music.load('sounds/gwah.mp3')
+        sound_files = [
+            'sounds/welcome_to_anya_house.mp3',
+            'sounds/waku_waku.mp3',
+            'sounds/gwah.mp3'
+        ]
+        if num < len(sound_files):
+            pygame.mixer.music.load(sound_files[num])
             pygame.mixer.music.play(0)
 
     # Draw Anya's dialogues
@@ -231,16 +227,10 @@ class Game:
         y = 375
 
         c = 0
-        n = 1
-
-        sleep_count = 0.05
 
         font_style = pygame.font.Font(None, 40)
 
-        # Draw the words quickly, without the typewriter effect.
-        if mode == 1:
-            sleep_count = 0
-
+        sleep_count = 0 if mode == 1 else 0.05
         self.draw_diag_rect()
         for i in text:
             diag = font_style.render(i, True, (255, 255, 255))
@@ -280,17 +270,12 @@ class Game:
                 window.blit(font_style.render(num, True, color),
                             (self.num_x+self.num_c, self.num_y))
                 pygame.display.update()
-                if mode == 1:
-                    pass
-                else:
+                if mode != 1:
                     self.num_c += 14
 
     # Check for mouse click on "OK" button
     def check_button_click(self, pos):
-        if self.button_pos.collidepoint(pos):
-            return True
-        else:
-            return False
+        return bool(self.button_pos.collidepoint(pos))
 
     # Play background music, start background fade animation, start anya fade animation.
     def load_base(self):
@@ -308,7 +293,7 @@ class Game:
                 self.reload_()
                 if not self.anya_done:
                     self.fade_anya(self.anya_sprites[0])
-                elif self.anya_done:
+                else:
                     self.reload_()
                     self.reload_anya(self.anya_sprites[0])
                     self.play_diags()
@@ -374,153 +359,154 @@ class Game:
                         self.display_diag(
                             "Anya had fun playing with you. Bye for now!")
                         run = False
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if self.check_button_click(pygame.mouse.get_pos()):
-                            if length == '':
-                                self.reload_()
-                                self.reload_anya(self.anya_sprites[1])
-                                input_loop = True
+                    if (
+                        event.type == pygame.MOUSEBUTTONDOWN and
+                        self.check_button_click(pygame.mouse.get_pos())
+                    ):
+                        if length == '':
+                            self.reload_()
+                            self.reload_anya(self.anya_sprites[1])
+                            input_loop = True
 
-                                # To display the question in a typewriter effect only for the first time.
-                                # If "backspace" is pressed then the question shouldn't be displayed again in a typewriter effect.
-                                if c > 1:
-                                    c = 1
+                            # To display the question in a typewriter effect only for the first time.
+                            # If "backspace" is pressed then the question shouldn't be displayed again in a typewriter effect.
+                            c = min(c, 1)
+                            self.display_diag(
+                                "What is the length of your word?", c)
+                            self.display_input_prompt("Type a number: ")
+                            c += 1
+                        else:
+                            if input_loop:
+                                input_loop = False
+
+                                # Reset the variables
+                                self.num_x = 229
+                                self.num_y = 452
+                                self.num_c = 0
+
+                                c = 0
+
+                            if not columns_selected:
+                                self.draw_matrix()
+                                matrix_input_loop = True
                                 self.display_diag(
-                                    "What is the length of your word?", c)
-                                self.display_input_prompt("Type a number: ")
+                                    f"Which column number has the {n}th letter?")
+                                self.display_input_prompt(
+                                    "Type a number: ", '', 1)
+                                n += 1
                                 c += 1
+
+                            elif len(columns_selected) != int(length):
+                                c = min(c, 1)
+                                self.display_diag(
+                                    f"Which column number has the {n}th letter?", c)
+                                self.display_input_prompt(
+                                    "Type a number: ", '', 1)
+                                n += 1
+
                             else:
-                                if input_loop:
-                                    input_loop = False
+                                matrix_input_loop = False
+
+                                if not transpose_matrix_input_loop:
+                                    transpose_matrix_input_loop = True
 
                                     # Reset the variables
                                     self.num_x = 229
                                     self.num_y = 452
                                     self.num_c = 0
-
                                     c = 0
+                                    n = 1
 
-                                if not columns_selected:
-                                    self.draw_matrix()
-                                    matrix_input_loop = True
+                                    self.draw_matrix_transpose(
+                                        columns_selected)
                                     self.display_diag(
-                                        f"Which column number has the {n}th letter?")
+                                        "You'll have to do it 1 more time now...")
+
+                                if not transpose_columns_selected:
+                                    self.display_diag(
+                                        f"Which column number has the {n}th letter?", c)
                                     self.display_input_prompt(
                                         "Type a number: ", '', 1)
                                     n += 1
                                     c += 1
 
-                                elif columns_selected and len(columns_selected) != int(length):
-                                    if c > 1:
-                                        c = 1
+                                elif len(transpose_columns_selected) != int(length):
+
+                                    c = min(c, 1)
                                     self.display_diag(
                                         f"Which column number has the {n}th letter?", c)
                                     self.display_input_prompt(
                                         "Type a number: ", '', 1)
                                     n += 1
 
-                                elif columns_selected and len(columns_selected) == int(length):
+                                else:
+                                    self.play_diags(2)
+                                    self.reload_anya(self.anya_sprites[2])
 
-                                    matrix_input_loop = False
+                                    self.guesser.name_length = int(length)
+                                    self.guesser.columns_selected = columns_selected
+                                    self.guesser.transpose_columns_selected = transpose_columns_selected
 
-                                    if not transpose_matrix_input_loop:
-                                        transpose_matrix_input_loop = True
+                                    calculated_word = self.guesser.calc_word()
 
-                                        # Reset the variables
-                                        self.num_x = 229
-                                        self.num_y = 452
-                                        self.num_c = 0
-                                        c = 0
-                                        n = 1
+                                    self.display_diag(
+                                        f"The word you were thinking of is \"{calculated_word}\" !!")
 
-                                        self.draw_matrix_transpose(
-                                            columns_selected)
-                                        self.display_diag(
-                                            "You'll have to do it 1 more time now...")
+                                    # Reset the variables
+                                    length = ''
+                                    n = 1
+                                    c = 0
 
-                                    if not transpose_columns_selected:
-                                        self.display_diag(
-                                            f"Which column number has the {n}th letter?", c)
-                                        self.display_input_prompt(
-                                            "Type a number: ", '', 1)
-                                        n += 1
-                                        c += 1
+                                    self.num_x = 229
+                                    self.num_y = 452
+                                    self.num_c = 0
 
-                                    elif transpose_columns_selected and len(transpose_columns_selected) != int(length):
+                                    columns_selected = []
+                                    transpose_columns_selected = []
 
-                                        if c > 1:
-                                            c = 1
-                                        self.display_diag(
-                                            f"Which column number has the {n}th letter?", c)
-                                        self.display_input_prompt(
-                                            "Type a number: ", '', 1)
-                                        n += 1
+                                    transpose_matrix_input_loop = False
 
-                                    elif transpose_columns_selected and len(transpose_columns_selected) == int(length):
-                                        self.play_diags(2)
-                                        self.reload_anya(self.anya_sprites[2])
+                    if input_loop:
+                        if event.type == pygame.KEYDOWN:
+                            if event.unicode.isdigit():
+                                self.display_input_prompt(
+                                    "Type a number: ", event.unicode)
+                                length += str(event.unicode)
 
-                                        self.guesser.name_length = int(length)
-                                        self.guesser.columns_selected = columns_selected
-                                        self.guesser.transpose_columns_selected = transpose_columns_selected
+                            elif event.key == pygame.K_BACKSPACE:
+                                self.display_input_prompt(
+                                    "Type a number: ", str(n), 2)
+                                if length != '':
+                                    length = length[:-1]
+                                if n != 1:
+                                    n -= 1
 
-                                        calculated_word = self.guesser.calc_word()
+                    elif matrix_input_loop:
+                        if event.type == pygame.KEYDOWN:
+                            if event.unicode.isdigit():
+                                self.display_input_prompt(
+                                    "Type a number: ", event.unicode, 1)
+                                columns_selected.append(int(event.unicode))
 
-                                        self.display_diag(
-                                            f"The word you were thinking of is \"{calculated_word}\" !!")
+                            elif event.key == pygame.K_BACKSPACE:
+                                self.display_input_prompt(
+                                    "Type a number: ", str(n), 3)
+                                if columns_selected:
+                                    columns_selected.pop(-1)
 
-                                        # Reset the variables
-                                        length = ''
-                                        n = 1
-                                        c = 0
+                    elif transpose_matrix_input_loop:
+                        if event.type == pygame.KEYDOWN:
+                            if event.unicode.isdigit():
+                                self.display_input_prompt(
+                                    "Type a number: ", event.unicode, 1)
+                                transpose_columns_selected.append(
+                                    int(event.unicode))
 
-                                        self.num_x = 229
-                                        self.num_y = 452
-                                        self.num_c = 0
-
-                                        columns_selected = []
-                                        transpose_columns_selected = []
-
-                                        transpose_matrix_input_loop = False
-
-                    if event.type == pygame.KEYDOWN and input_loop:
-                        if event.unicode.isdigit():
-                            self.display_input_prompt(
-                                "Type a number: ", event.unicode)
-                            length += str(event.unicode)
-
-                        elif event.key == pygame.K_BACKSPACE:
-                            self.display_input_prompt(
-                                "Type a number: ", str(n), 2)
-                            if length != '':
-                                length = length[:-1]
-                            if n != 1:
-                                n -= 1
-
-                    elif event.type == pygame.KEYDOWN and matrix_input_loop:
-                        if event.unicode.isdigit():
-                            self.display_input_prompt(
-                                "Type a number: ", event.unicode, 1)
-                            columns_selected.append(int(event.unicode))
-
-                        elif event.key == pygame.K_BACKSPACE:
-                            self.display_input_prompt(
-                                "Type a number: ", str(n), 3)
-                            if columns_selected:
-                                columns_selected.pop(-1)
-
-                    elif event.type == pygame.KEYDOWN and transpose_matrix_input_loop:
-                        if event.unicode.isdigit():
-                            self.display_input_prompt(
-                                "Type a number: ", event.unicode, 1)
-                            transpose_columns_selected.append(
-                                int(event.unicode))
-
-                        elif event.key == pygame.K_BACKSPACE:
-                            self.display_input_prompt(
-                                "Type a number: ", str(n), 3)
-                            if transpose_columns_selected:
-                                transpose_columns_selected.pop(-1)
+                            elif event.key == pygame.K_BACKSPACE:
+                                self.display_input_prompt(
+                                    "Type a number: ", str(n), 3)
+                                if transpose_columns_selected:
+                                    transpose_columns_selected.pop(-1)
 
 
 Game()
