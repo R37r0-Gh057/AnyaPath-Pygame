@@ -141,7 +141,6 @@ class Game:
     # Draw the matrix on the screen
     def draw_matrix(self):
         c = 0
-        n = 1
 
         x = 3
         y = 49
@@ -191,29 +190,15 @@ class Game:
             window.blit(col, (x+c, 13))
             c += 50
             pygame.display.update()
-        c = 0
 
         for col in cols:
+            c = 0
             for k in self.guesser.transposed_matrix[int(col)-1]:
                 col_ = font_style.render(k, True, (255, 0, 0))
-                if n != len(self.guesser.transposed_matrix[int(col)-1]):
-                    if c == 0:
-                        window.blit(col_, (x, y))
-                        pygame.display.update()
-                        c += 50
-                        n += 1
-                    elif c != 0:
-                        window.blit(col_, (x+c, y))
-                        pygame.display.update()
-                        c += 50
-                        n += 1
-
-                elif n == len(self.guesser.transposed_matrix[int(col)-1]):
-                    window.blit(col_, (x+c, y))
-                    pygame.display.update()
-                    y += 30
-                    n = 1
-                    c = 0
+                window.blit(col_, (x+c, y))
+                pygame.display.update()
+                c += 50
+            y += 30
 
     # Draw the background
     def reload_(self):
