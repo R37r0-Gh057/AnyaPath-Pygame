@@ -73,10 +73,8 @@ class Game:
         # # Number to increment in self.num_x
         self.num_c = 0
 
-        self.load_base()  # Load the fading animations
-        self.main()      # Start the game
-
     # Background fade animation:
+
     def bg_fade(self):
 
         if self.alpha == 255:
@@ -509,4 +507,7 @@ class Game:
                                     transpose_columns_selected.pop(-1)
 
 
-Game()
+if __name__ == '__main__':
+    game = Game()
+    game.load_base()  # Load the fading animations
+    game.main()      # Start the game
