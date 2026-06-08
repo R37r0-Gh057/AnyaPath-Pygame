@@ -1,84 +1,236 @@
 <p align="center">
   <a href="https://github.com/R37r0-Gh057/AnyaPath-Pygame">
-    <img alt="logo" src="logo_.png">
+    <img alt="AnyaPath Logo" src="assets/logo_.png" width="500">
   </a>
 </p>
-<h1>AnyaPath-Pygame</h1>
 
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+<h1 align="center">✨ AnyaPath Remastered ✨</h1>
 
-# Table of contents:
-  - [Introduction](#introduction)
-  - [How to play](#how-to-play)
-  - [The Magic Matrix](#the-magic-matrix)
-  - [Installation](#installation)
-  - [Contributing](#contributing)
-  - [To Do](#to-do)
+<p align="center">
+  <strong>Anya can read your mind... or can she? 👀</strong>
+</p>
 
-# Introduction:
-AnyaPath is made with Python (Pygame). In which [Anya Forger](https://spy-x-family.fandom.com/wiki/Anya_Forger) from [Spy x Family](https://en.wikipedia.org/wiki/Spy_%C3%97_Family) will find out any word that you have in mind without any mistakes using the [Magic Matrix method](#the-magic-matrix). (If you don't get the right result, then you must have given an incorrect input.)  Check out the gameplay video on [youtube](https://www.youtube.com/watch?v=oTCa3VhaS0A).
+<p align="center">
+  A remastered version of a college-era Pygame project built while I was learning the library in 2022.
+</p>
 
-# How to play:
-* Anya will ask you to **provide the length (the number of letters)** of the word you have in mind.
-* Anya will give you a **matrix** which contains all **alphabets**.
-* For every letter of your word, You'll have to tell Anya which **column** has the **letter** in it. Just type the column number and click **'OK'** button to move on to the next letter.
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Game%20Engine-Pygame-2C2D72?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Remastered-ff69b4?style=for-the-badge">
+</p>
 
-* Anya will give you an **another matrix** which is different from the previous one, and you'll have to do the **same thing again** for the last time.
+---
 
-* In the end Anya will tell you the word you were thinking of. :D
+## 🎮 Gameplay Preview
 
-<img src="demo.gif">
+<p align="center">
+  <img src="assets/demo_screenshot.png" width="800">
+</p>
 
-# The Magic Matrix:
-* In the Magic Matrix method, there is a matrix which contains all of the alphabets.
-* In that matrix, only those columns that contain the letters of the word are selected in the continuos order.
-* Then the selected columns are transposed to create another matrix.
-* The same steps are repeated with this new matrix to get the columns that contain the letters.
-* Finally, an element of every row of the columns are selected with incrementing the row number for each column. (See example below for better understanding.)
+---
 
-**EXAMPLE:**
-Let's say our desired word is "FISH".
+## 📖 About
 
-* From the below matrix we select the columns that contain the letters 'F', 'I', 'S', 'H':
-<img height = 150 src = "matrix_1.png">
+**AnyaPath** is a small mind-reading game inspired by **Anya Forger** from *Spy × Family*, where Anya guesses any word you're secretly thinking of using a fun matrix-based trick.
 
-  * We first select the **6th column**, since it has the **first** letter (**'F'**) of the word.
-  * Then we select the **3rd column**, since it has the **second** letter (**'I'**) of the word.
-  * Then we select the **1st column**, since it has the **third** letter (**'S'**) of the word.
-  * And lastly, we select the **2nd column**, since it has the **fourth** letter (**'H'**) of the word.
+This project was originally created in **2022 while I was learning Pygame during college**. Years later, I revisited it to refactor, redesign, and modernize the game while preserving the original gameplay idea.
 
-* Now we transpose the selected columns to create a new matrix and repeat the same steps with it:
-<img height = 150 src = "matrix_2.jpg">
+The goal of this remaster was simple:
 
-  * We first select the **1st column**, since it has the **first** letter (**'F'**) of the word.
-  * Then we select the **2nd column**, since it has the  **second** letter (**'I'**) of the word.
-  * Then we select the **4th column**, since it has the **fourth** letter (**'S'**) of the word.
-  * And lastly, we select the **2nd column** again, since it has the **fourth** letter (**'H'**) of the word.
+> Keep the charm of the original, but make the codebase and experience feel much more polished.
 
- * From the selected columns **[1, 2, 4, 2]** of the **new matrix**, we take **an element from each of those columns' rows** but we **keep incrementing the row number for a new column.**
-    * From the **first column[1]**, we take the element from **row number 1.**
-    * From the **second column[2]**, we take the element from **row number 2**.
-    * From the **third column[4]**, we take the element from **row number 3**.
-    * From the **fourth column[2]**, we take the element from **row number 4**.
-* After selecting the elements, you will have the whole word.
-# Installation:
-* Windows: download the Executable from [here](https://github.com/R37r0-Gh057/AnyaPath-Pygame/releases/tag/v1.0.1) and run it.
-* Other:
-  * Install python
-  * Install pygame module: `python -m pip install pygame`
-  * Clone the repo: `git clone https://github.com/R37r0-Gh057/AnyaPath-Pygame`
-  * Run the game: ```cd AnyaPath-Pygame && python game.py```
- 
-# Contributing:
-There is alot left to improve in the code. There are some current major known issues that need fixing:
+---
 
-- [x] The background music doesn't play in a loop.
-- [ ] Transpose Matrix created by a large word won't fit in the screen and matrix box height doesn't increase according to the length of the given word.
-- [ ] On giving big words, the sentence length increases and the text goes out of the dialog box.
-- [ ] The game freezes when the screen is clicked before a dialogue has finished displaying.
+## 🔄 Original vs Remastered
 
-  * ## To do:
-    * To make the game more fun:
-      * Add more sprites
-      * Add more sounds.
-      * Add more Anya-like dialogues.
+<table align="center">
+<tr>
+<td align="center"><strong>Original (2022)</strong></td>
+<td align="center"><strong>Remastered</strong></td>
+</tr>
+<tr>
+<td>
+<img src="assets/demo.gif" width="420">
+</td>
+<td>
+<img src="assets/demo_remastered.gif" width="420">
+</td>
+</tr>
+</table>
+
+### ✨ What's Improved?
+
+| Original | Remastered |
+|----------|-------------|
+| Monolithic structure | Cleaner modular architecture |
+| Beginner-level Pygame code | Refactored & maintainable codebase |
+| Basic UI | Improved visual styling |
+| Hard-to-read text | Better readability & typography |
+| Overlapping sprite placement | Cleaner layout and positioning |
+| Same gameplay | Preserved original mechanics |
+
+---
+
+## 🕹️ How To Play
+
+1. Think of **any word** in your mind.
+2. Enter the **number of letters** in that word.
+3. Anya will show a matrix of alphabets.
+4. For each letter in your word:
+   - Select the **column number** containing that letter.
+5. Anya will generate a **new matrix**.
+6. Repeat the process one more time.
+7. Watch Anya reveal the exact word you were thinking of 👀
+
+> If the result is incorrect, an incorrect column was likely selected at some point.
+
+---
+
+## 🧠 How The Magic Matrix Works
+
+The game uses a simple but fun matrix trick to reconstruct your word.
+
+### Step 1 — Initial Matrix
+
+A matrix containing the alphabet is shown.
+
+For every letter in your secret word, only the **column containing that letter** is selected.
+
+Example word:
+
+```txt
+FISH
+````
+
+From the first matrix:
+
+Selections:
+
+* **F** → Column **6**
+* **I** → Column **3**
+* **S** → Column **1**
+* **H** → Column **2**
+
+Result:
+
+```txt
+[6, 3, 1, 2]
+```
+
+---
+
+### Step 2 — Matrix Transposition
+
+The selected columns are transposed to create a new matrix.
+
+You repeat the same process:
+
+* **F** → Column **1**
+* **I** → Column **2**
+* **S** → Column **4**
+* **H** → Column **2**
+
+Result:
+
+```txt
+[1, 2, 4, 2]
+```
+
+---
+
+### Step 3 — Word Reconstruction
+
+The selected columns are used row-by-row:
+
+* Column **1** → Row **1**
+* Column **2** → Row **2**
+* Column **4** → Row **3**
+* Column **2** → Row **4**
+
+Result:
+
+```txt
+FISH
+```
+
+✨ Mind reading achieved... LMAO
+
+---
+
+## 🚀 Installation
+
+### Option 1 — Run From Source
+
+Clone the repository:
+
+```bash
+git clone https://github.com/R37r0-Gh057/AnyaPath-Pygame
+```
+
+Move into the project:
+
+```bash
+cd AnyaPath-Pygame
+```
+
+Install dependencies:
+
+```bash
+pip install pygame
+```
+
+Run the game:
+
+```bash
+python game.py
+```
+
+---
+
+## 🛠️ Tech Stack
+
+* **Python**
+* **Pygame**
+
+---
+
+## 📁 Project Structure
+
+```txt
+AnyaPath-Pygame/
+│── assets/
+│   ├── sounds/
+│   └── sprites/
+│
+│── game/
+│   ├── animation.py
+│   ├── audio.py
+│   ├── game.py
+│   ├── state.py
+│   ├── ui.py
+│   └── word_guesser.py
+│
+│── constants.py
+│── game.py
+│── requirements.txt
+│── README.md
+```
+---
+
+## 🎯 Future Improvements
+
+* More sprite variations
+* More Anya voice lines & reactions
+* Additional UI polish
+* Better support for very large words
+
+---
+
+## ❤️ Credits
+
+Inspired by **Anya Forger** from **Spy × Family**.
+
+Built with **Python + Pygame**.
+
+Originally created in **2022**, remastered years later for fun, learning, and nostalgia ✨
