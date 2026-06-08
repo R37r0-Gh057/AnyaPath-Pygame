@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/R37r0-Gh057/AnyaPath-Pygame">
-    <img alt="AnyaPath Logo" src="logo_.png" width="500">
+    <img alt="AnyaPath Logo" src="assets/logo_.png" width="500">
   </a>
 </p>
 
@@ -25,7 +25,7 @@
 ## 🎮 Gameplay Preview
 
 <p align="center">
-  <img src="demo_screenshot.png" width="800">
+  <img src="assets/demo_screenshot.png" width="800">
 </p>
 
 ---
@@ -51,10 +51,10 @@ The goal of this remaster was simple:
 </tr>
 <tr>
 <td>
-<img src="demo.gif" width="420">
+<img src="assets/demo.gif" width="420">
 </td>
 <td>
-<img src="demo_remastered.gif" width="420">
+<img src="assets/demo_remastered.gif" width="420">
 </td>
 </tr>
 </table>
