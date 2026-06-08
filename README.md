@@ -25,7 +25,7 @@
 ## 🎮 Gameplay Preview
 
 <p align="center">
-  <img src="demo_remastered.gif" width="800">
+  <img src="demo_screenshot.png" width="800">
 </p>
 
 ---
@@ -54,7 +54,7 @@ The goal of this remaster was simple:
 <img src="demo.gif" width="420">
 </td>
 <td>
-<img src="demo_screenshot.png" width="420">
+<img src="demo_remastered.gif" width="420">
 </td>
 </tr>
 </table>
