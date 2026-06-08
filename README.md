@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  A remastered version of a college-era Pygame project built while learning the library in 2022.
+  A remastered version of a college-era Pygame project built while I was learning the library in 2022.
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 
 **AnyaPath** is a small mind-reading game inspired by **Anya Forger** from *Spy × Family*, where Anya guesses any word you're secretly thinking of using a fun matrix-based trick.
 
-This project was originally created in **2022 while learning Pygame during college**. Years later, I revisited it to refactor, redesign, and modernize the game while preserving the original gameplay idea.
+This project was originally created in **2022 while I was learning Pygame during college**. Years later, I revisited it to refactor, redesign, and modernize the game while preserving the original gameplay idea.
 
 The goal of this remaster was simple:
 
@@ -154,7 +154,7 @@ Result:
 FISH
 ```
 
-✨ Mind reading achieved.
+✨ Mind reading achieved... LMAO
 
 ---
 
